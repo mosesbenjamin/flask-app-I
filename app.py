@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for
 
 app = Flask(__name__)
 
@@ -10,15 +10,10 @@ def index():
 def about():
     return render_template('about.html')
 
-# @app.route('/greet')
-# def greet():
-#     name = "Mavewrick"
-#     return render_template('greet.html', name = name)
+@app.route('/dashboard')
+def dashboard():
+    return render_template('dashboard.html')
 
-@app.route('/<name>')
-def nameParam(name):
-    name = name
-    return render_template('greet.html', name = name)
 
 if __name__ == "__main__":
     app.run(debug=True)
