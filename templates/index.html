@@ -9,7 +9,39 @@ class="nav-item active"
 {% endblock %}
 
 {% block content %}
-<div>
-    <p>Index Page </p>
+<div class="row">
+    <div 
+    class="col-md-8 my-4" 
+    style="background: rgba(91, 192, 222, 0.3);
+           border-radius: 10px">
+        <div class="row">
+            <div class="col-md-6">
+                <form action="">
+                    <div class="form-group">
+                        <label for="word">Word</label>
+                        <input type="text" class="form-control" placeholder="Type in a word to find its meaning">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Find</button>
+                </form>
+            </div>  
+            <div class="col-md-6">
+                <form action="">
+                    <div class="form-group">
+                        <label for="meaning">Meaning</label>
+                        <textarea 
+                        class="form-control" 
+                        style="height: 230px" 
+                        name="meaning" 
+                        id="meaning" 
+                        disabled
+                        >The meaning of the word would appear here</textarea>
+                    </div>
+                </form>
+            </div> 
+        </div>
+    </div>
+    <div class="col-md-4">
+       <img src="{{ url_for('static', filename='img/search.jpg') }}" alt="Search" class="img-fluid">
+    </div>
 </div>
 {% endblock %}
