@@ -9,7 +9,37 @@ class="nav-item active"
 {% endblock %}
 
 {% block content %}
-<div>
-    <p>Dashboard </p>
+<div class="row">
+    <div 
+    class="col-md-2 d-flex flex-column"
+    style="border-right: 5px solid #111;">
+        <a href="#">All words</a>
+        <a href="#">Add new</a>
+    </div>
+    <div class="col-md-10">
+        <h2>Word Index</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>SN</th>
+                    <th>Word</th>
+                    <th>Meaning</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for word in words %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ word['word'] }}</td>
+                    <td>{{ word['meaning'] }}</td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="3">No words yet in the database at the moment. Check back later</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </div>
 {% endblock %}
